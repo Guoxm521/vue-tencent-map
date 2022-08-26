@@ -1,28 +1,50 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <BaiduMap ak="2F7BZ-CRP6J-AXKFP-KH7FV-KLC5J-DNF4CF" @click="handleClick">
+      <MapType></MapType>
+    </BaiduMap>
+    <button @click="handleClick">点击</button>
+    <div>{{ position }}</div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import { BaiduMap } from "./components/index"
+import Scale from "./components/controls/Scale.vue"
+import Zoom from "./components/controls/Zoom.vue"
+import MapType from "./components/controls/MapType.vue"
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
+    BaiduMap,
+    Scale,
+    Zoom,
+    MapType,
+  },
+  data() {
+    return {
+      position: "TOP_CENTER",
+      boundary: {
+        ne: {
+          lat: 39.916527,
+          lng: 116.397128,
+        },
+        sw: {
+          lat: 39.86,
+          lng: 116.28666,
+        },
+      },
+    }
+  },
+  methods: {
+    handleClick() {
+      this.position = "CENTER"
+    },
+  },
 }
 </script>
-
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  width: 800px;
+  height: 800px;
 }
 </style>

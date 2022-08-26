@@ -1,0 +1,38 @@
+import { createPoint } from './factory'
+
+export const isPoint = obj => obj.lng && obj.lat
+export const checkType = val => Object.prototype.toString.call(val).slice(8, -1)
+export const getPosition = (BMap, point) => isPoint(point) ? createPoint(BMap, point) : point
+export const checkBounds = (obj) => {
+    if (obj.sw && obj.ne && obj.sw.lat && obj.sw.lng && obj.ne.lat && obj.ne.lng) {
+        return true
+    } else {
+        return false
+    }
+}
+export const checkControlPosition = (string) => {
+    let CONTROL_POSITIONS = [
+        'TOP_LEFT',
+        'TOP_CENTER',
+        'TOP_RIGHT',
+        'CENTER_LEFT',
+        'CENTER',
+        'CENTER_RIGHT',
+        'BOTTOM_LEFT',
+        'BOTTOM_CENTER',
+        'BOTTOM_RIGHT',
+    ]
+    return CONTROL_POSITIONS.indexOf(string) !== -1 ? true : false
+
+}
+export const checkBaseMapType = (string) => {
+    let BaseMapType = ['vector', 'satellite', 'traffic']
+    return BaseMapType.indexOf(string) !== -1 ? true : false
+}
+// TODO
+export const checkFeatures = (type, features) => {
+    if (Object.prototype.toString.call(val) !== '[object Array]') {
+    } else {
+    }
+    return true
+}
