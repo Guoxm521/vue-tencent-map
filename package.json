@@ -1,15 +1,27 @@
 {
-  "name": "tencenmap",
+  "name": "papa-tencent-map",
   "version": "0.1.0",
-  "private": true,
+  "description": "Tencent Map Component for Vue 2.0",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "pbuild": "webpack -p --config ./build/webpack.prod.config.js",
     "lint": "vue-cli-service lint"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dafrok/vue-baidu-map.git"
+  },
+  "keywords": [
+    "vue",
+    "Tencent-map",
+    "tmap",
+    "vue-tencent-map",
+    "tencent",
+    "map"
+  ],
   "dependencies": {
-    "core-js": "^3.8.3",
-    "vue": "^2.6.14",
+    "vue": "^2.1.8",
     "vue-router": "^3.5.1"
   },
   "devDependencies": {
@@ -21,7 +33,22 @@
     "@vue/cli-service": "~5.0.0",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
-    "vue-template-compiler": "^2.6.14"
+    "vue-loader": "^10.0.2",
+    "vue-template-compiler": "^2.6.14",
+    "webpack": "^2.4.1",
+    "babel-core": "6.26.0",
+    "babel-loader": "6.2.10",
+    "core-js": "^3.8.3",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-module-alias": "^1.6.0",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-es2015-modules-umd": "^6.24.0",
+    "babel-preset-es2015": "^6.18.0",
+    "bmaplib.distancetool": "^1.0.2"
+  },
+  "peerDependencies": {
+    "vue": "^2.1.8",
+    "vue-router": "^3.5.1"
   },
   "eslintConfig": {
     "root": true,

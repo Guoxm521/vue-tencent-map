@@ -41,12 +41,4 @@
 		},
 	};
 </script>
-<style>
-#app {
-	width: 800px;
-	height: 800px;
-}
-.control .tmap-zoom-control {
-	background-color: #f2f2f2;
-}
-</style>
+
