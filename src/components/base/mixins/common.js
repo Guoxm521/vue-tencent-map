@@ -44,10 +44,15 @@ class Mixin {
                             return originInstance.dispose()
                         case 'markerClusterer':
                             return originInstance.clearMarkers()
+                        case 'control':
+                            return map[types[prop.type].unload](originInstance)
                         default:
-                            map[types[prop.type].unload](originInstance)
+                            break
                     }
-                } catch (e) { }
+                } catch (e) {
+                    console.log(e)
+                    throw new Error(e)
+                }
             }
         }
         this.computed = {
