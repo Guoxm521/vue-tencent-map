@@ -1,8 +1,5 @@
-import { createPoint } from './factory'
-
 export const isPoint = obj => obj.lng && obj.lat
 export const checkType = val => Object.prototype.toString.call(val).slice(8, -1)
-export const getPosition = (BMap, point) => isPoint(point) ? createPoint(BMap, point) : point
 export const checkBounds = (obj) => {
     if (obj.sw && obj.ne && obj.sw.lat && obj.sw.lng && obj.ne.lat && obj.ne.lng) {
         return true

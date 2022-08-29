@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <BaiduMap
+    <TencentMap
       ak="2F7BZ-CRP6J-AXKFP-KH7FV-KLC5J-DNF4CF"
       @click="handleClick"
       style="width: 800px; height: 400px"
@@ -18,14 +18,14 @@
         :geometries="labelgeometries"
         @click="handleClickMarker"
       ></bm-label>
-    </BaiduMap>
+    </TencentMap>
     <button @click="handleClick12">点击</button>
     <div>{{ position }}</div>
   </div>
 </template>
 
 <script>
-import { BaiduMap } from "./components/index"
+import { TencentMap } from "./components/index"
 import Scale from "./components/controls/Scale.vue"
 import Zoom from "./components/controls/Zoom.vue"
 import MapType from "./components/controls/MapType.vue"
@@ -33,7 +33,7 @@ import BmMarker from "./components/overlays/Marker.vue"
 import BmLabel from "./components/overlays/Label.vue"
 export default {
   components: {
-    BaiduMap,
+    TencentMap,
     Scale,
     Zoom,
     MapType,
