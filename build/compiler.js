@@ -5,14 +5,14 @@ const compiler = require('vue-template-compiler')
 const path = require('path')
 const fs = require('fs')
 const pug = require('pug')
-const babel = require('babel-core')
+const babel = require('@babel/core')
 const rmdir = require('rmdir')
 
 const rootPath = path.resolve(__dirname, '../src')
 
 const isArray = Array.isArray
 
-function attrsToString (attrs) {
+function attrsToString(attrs) {
   let ret = ''
   for (const name in attrs) {
     const value = attrs[name]
@@ -25,11 +25,11 @@ function attrsToString (attrs) {
   return ret
 }
 
-function tagToString (tag) {
+function tagToString(tag) {
   return tag ? `<${tag.type} ${attrsToString(tag.attrs)}>${tag.content}</${tag.type}>` : ''
 }
 
-function reverseToComponent (componentObj) {
+function reverseToComponent(componentObj) {
   let ret = ''
   for (const key in componentObj) {
     const tag = componentObj[key]
@@ -42,27 +42,27 @@ function reverseToComponent (componentObj) {
   return ret
 }
 
-function transformAlias (content, level) {
+function transformAlias(content, level) {
   return babel.transform(content, {
     plugins: [
       [
         'module-alias', [
-          {src: '../'.repeat(level), expose: '@'}
+          { src: '../'.repeat(level), expose: '@' }
         ]
       ]
     ]
   }).code
 }
 
-function transformES (content) {
+function transformES(content) {
   return babel.transform(content, {
     presets: [
-      'es2015'
+      '@babel/preset-env'
     ]
   }).code
 }
 
-function walkComponents (rootPath, level = 0, pathName = '.', result = []) {
+function walkComponents(rootPath, level = 0, pathName = '.', result = []) {
   const files = fs.readdirSync(rootPath)
   files.forEach(file => {
     const filePath = path.resolve(rootPath, file)
@@ -101,7 +101,7 @@ function walkComponents (rootPath, level = 0, pathName = '.', result = []) {
   return result
 }
 
-function mkdirp (filepath) {
+function mkdirp(filepath) {
   var dirname = path.dirname(filepath)
 
   if (!fs.existsSync(dirname)) {

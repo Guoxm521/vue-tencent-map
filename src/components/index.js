@@ -1,7 +1,27 @@
-import BaiduMap from './map/Map.vue'
-import BmView from './map/MapView.vue'
-import BmScale from './controls/Scale.vue'
+import TencentMap from './map/Map.vue'
+import TencentView from './map/MapView.vue'
+import TencentScale from './controls/Scale.vue'
+import TencentMapType from './controls/MapType.vue'
+import TencentRotation from './controls/Rotation.vue'
+import TencentZoom from './controls/Zoom.vue'
+import TencentLabel from './overlays/Label.vue'
+import TencentMarker from './overlays/Marker.vue'
 
-export {
-    BaiduMap, BmView, BmScale
+export default {
+    install(Vue, options) {
+        const { ak } = options
+        Vue.prototype._TMap = () => ({ ak })
+        Vue.component('tencent-map', TencentMap)
+        Vue.component('tencent-view', TencentView)
+        Vue.component('tencent-scale', TencentScale)
+        Vue.component('tencent-map-type', TencentMapType)
+        Vue.component('tencent-rotation', TencentRotation)
+        Vue.component('tencent-zoom', TencentZoom)
+        Vue.component('tencent-label', TencentLabel)
+        Vue.component('tencent-marker', TencentMarker)
+    }
 }
+export {
+    TencentMap, TencentView, TencentScale, TencentMapType, TencentRotation, TencentZoom, TencentLabel, TencentMarker
+}
+

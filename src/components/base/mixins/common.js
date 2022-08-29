@@ -1,8 +1,3 @@
-const types = {
-    control: {
-        unload: 'removeControl'
-    }
-}
 const getParent = $component => ($component.abstract || $component.$el === $component.$children[0].$el) ? getParent($component.$parent) : $component
 function destroyInstance() {
     const { unload, renderByParent, $parent } = this
@@ -25,7 +20,7 @@ class Mixin {
                 })
             },
             transmitEvent(e) {
-                this.$emit(e.type.replace(/^on/, ''), e)
+                this.$emit(e.replace(/^on/, ''), e)
             },
             reload() {
                 this && this.TMap && this.$nextTick(() => {
@@ -34,7 +29,7 @@ class Mixin {
                 })
             },
             unload() {
-                const { map, originInstance } = this
+                let { map, originInstance } = this
                 try {
                     switch (prop.type) {
                         case 'search':
@@ -42,15 +37,20 @@ class Mixin {
                         case 'autoComplete':
                         case 'lushu':
                             return originInstance.dispose()
-                        case 'markerClusterer':
-                            return originInstance.clearMarkers()
+                        case 'marker':
+                            originInstance.setMap(null);
+                            originInstance = null;
+                            break
+                        case 'label':
+                            originInstance.setMap(null);
+                            originInstance = null;
+                            break
                         case 'control':
-                            return map[types[prop.type].unload](originInstance)
+                            return map['removeControl'](originInstance)
                         default:
                             break
                     }
                 } catch (e) {
-                    console.log(e)
                     throw new Error(e)
                 }
             }

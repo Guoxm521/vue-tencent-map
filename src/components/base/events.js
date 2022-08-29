@@ -35,28 +35,28 @@ export default {
     'animation_ended',
     'animation_stopped',
   ],
-  'bm-geolocation': [
-    'locationSuccess',
-    'locationError'
-  ],
-  'bm-overview-map': [
-    'viewchanged',
-    'viewchanging'
-  ],
-  'bm-marker': [
+  'tencent-marker': [
     'click',
     'dblclick',
     'mousedown',
     'mouseup',
     'mouseout',
     'mouseover',
-    'remove',
-    'infowindowclose',
-    'infowindowopen',
-    'dragstart',
-    'dragging',
-    'dragend',
-    'rightclick'
+    'hover',
+    'moving',
+    'move_ended',
+    'move_stopped',
+    'move_paused',
+    'move_resumed',
+  ],
+  'tencent-label': [
+    'click',
+    'dblclick',
+    'mousedown',
+    'mouseup',
+    'mouseover',
+    'mousemove',
+    'hover',
   ],
   'bm-polyline': [
     'click',
