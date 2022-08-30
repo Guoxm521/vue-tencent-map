@@ -13,11 +13,17 @@
         @getMultiMarker="getMultiMarker"
         @getMap="getMap"
       ></bm-marker> -->
-      <bm-label
+      <!-- <bm-label
         :styles="labelStyle"
         :geometries="labelgeometries"
         @click="handleClickMarker"
-      ></bm-label>
+      ></bm-label> -->
+      <TencentInfoWindow
+        :position="{ lat: 39.916527, lng: 116.397128 }"
+        :content="content"
+        @closeclick="closeclick"
+        :visible="true"
+      ></TencentInfoWindow>
     </TencentMap>
     <button @click="handleClick12">点击</button>
     <div>{{ position }}</div>
@@ -25,7 +31,7 @@
 </template>
 
 <script>
-import { TencentMap } from "./components/index"
+import { TencentMap, TencentInfoWindow } from "./components/index"
 import Scale from "./components/controls/Scale.vue"
 import Zoom from "./components/controls/Zoom.vue"
 import MapType from "./components/controls/MapType.vue"
@@ -39,6 +45,7 @@ export default {
     MapType,
     BmMarker,
     BmLabel,
+    TencentInfoWindow,
   },
   data() {
     return {
@@ -61,7 +68,8 @@ export default {
           width: 34, // 宽度
           height: 46, // 高度
           anchor: { x: 17, y: 23 }, // 标注点图片的锚点位置
-          src: "https://mapapi.qq.com/web/lbs/visualizationApi/demo/img/small.png", // 标注点图片url或base64地址
+          src:
+            "https://mapapi.qq.com/web/lbs/visualizationApi/demo/img/small.png", // 标注点图片url或base64地址
           color: "#333", // 标注点文本颜色
           size: 16, // 标注点文本文字大小
           direction: "bottom", // 标注点文本文字相对于标注点图片的方位
@@ -73,7 +81,8 @@ export default {
           width: 58,
           height: 76,
           anchor: { x: 36, y: 32 },
-          src: "https://mapapi.qq.com/web/lbs/visualizationApi/demo/img/big.png",
+          src:
+            "https://mapapi.qq.com/web/lbs/visualizationApi/demo/img/big.png",
           color: "#333",
           size: 22,
           direction: "bottom",
@@ -175,6 +184,7 @@ export default {
           },
         },
       ],
+      content: "32131",
     }
   },
   methods: {
@@ -185,7 +195,8 @@ export default {
     },
     handleClick12() {
       // this.$refs["mark"].clear()
-      console.log(this.$refs["mark"].transmitEvent("ongetMap"))
+      // console.log(this.$refs["mark"].transmitEvent("ongetMap"))
+      this.content += "3"
     },
     handleClickMarker(e) {
       console.log(312312, e)
@@ -195,6 +206,9 @@ export default {
     },
     getMap(e) {
       console.log("getMap", e)
+    },
+    closeclick() {
+      console.log(31321312312312312)
     },
   },
 }

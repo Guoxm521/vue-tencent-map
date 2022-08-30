@@ -45,6 +45,10 @@ class Mixin {
                             originInstance.setMap(null);
                             originInstance = null;
                             break
+                        case 'infoWindow':
+                            originInstance.setMap(null);
+                            originInstance = null;
+                            break
                         case 'control':
                             return map['removeControl'](originInstance)
                         default:

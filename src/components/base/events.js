@@ -58,64 +58,7 @@ export default {
     'mousemove',
     'hover',
   ],
-  'bm-polyline': [
-    'click',
-    'dblclick',
-    'mousedown',
-    'mouseup',
-    'mouseout',
-    'mouseover',
-    'remove',
-    'lineupdate'
+  'tencent-info-window': [
+    'closeclick',
   ],
-  'bm-polygon': [
-    'click',
-    'dblclick',
-    'mousedown',
-    'mouseup',
-    'mouseout',
-    'mouseover',
-    'remove',
-    'lineupdate'
-  ],
-  'bm-circle': [
-    'click',
-    'dblclick',
-    'mousedown',
-    'mouseup',
-    'mouseout',
-    'mouseover',
-    'remove',
-    'lineupdate'
-  ],
-  'bm-label': [
-    'click',
-    'dblclick',
-    'mousedown',
-    'mouseup',
-    'mouseout',
-    'mouseover',
-    'remove',
-    'rightclick'
-  ],
-  'bm-info-window': [
-    'close',
-    'open',
-    'maximize',
-    'restore',
-    'clickclose'
-  ],
-  'bm-ground': [
-    'click',
-    'dblclick'
-  ],
-  'bm-autocomplete': [
-    'onconfirm',
-    'onhighlight'
-  ],
-  'bm-point-collection': [
-    'click',
-    'mouseover',
-    'mouseout'
-  ]
 }
