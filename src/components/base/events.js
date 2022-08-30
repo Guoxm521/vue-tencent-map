@@ -61,4 +61,8 @@ export default {
   'tencent-info-window': [
     'closeclick',
   ],
+  'tencent-marker-cluster': [
+    'click',
+    'cluster_changed',
+  ],
 }

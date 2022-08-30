@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <TencentMap
-      ak="2F7BZ-CRP6J-AXKFP-KH7FV-KLC5J-DNF4CF"
+      ak="12"
       @click="handleClick"
       style="width: 800px; height: 400px"
     >
@@ -18,12 +18,17 @@
         :geometries="labelgeometries"
         @click="handleClickMarker"
       ></bm-label> -->
-      <TencentInfoWindow
+      <!-- <TencentInfoWindow
         :position="{ lat: 39.916527, lng: 116.397128 }"
         :content="content"
         @closeclick="closeclick"
         :visible="true"
-      ></TencentInfoWindow>
+      ></TencentInfoWindow> -->
+      <TencentMarkerCluster
+        :geometries="geometries"
+        @click="cluster_click"
+        @cluster_changed="cluster_changed"
+      ></TencentMarkerCluster>
     </TencentMap>
     <button @click="handleClick12">点击</button>
     <div>{{ position }}</div>
@@ -31,7 +36,11 @@
 </template>
 
 <script>
-import { TencentMap, TencentInfoWindow } from "./components/index"
+import {
+  TencentMap,
+  TencentInfoWindow,
+  TencentMarkerCluster,
+} from "./components/index"
 import Scale from "./components/controls/Scale.vue"
 import Zoom from "./components/controls/Zoom.vue"
 import MapType from "./components/controls/MapType.vue"
@@ -46,6 +55,7 @@ export default {
     BmMarker,
     BmLabel,
     TencentInfoWindow,
+    TencentMarkerCluster,
   },
   data() {
     return {
@@ -209,6 +219,12 @@ export default {
     },
     closeclick() {
       console.log(31321312312312312)
+    },
+    cluster_changed() {
+      console.log(312312)
+    },
+    cluster_click(e) {
+      console.log(3, e)
     },
   },
 }

@@ -7,6 +7,7 @@ import TencentZoom from './controls/Zoom.vue'
 import TencentLabel from './overlays/Label.vue'
 import TencentMarker from './overlays/Marker.vue'
 import TencentInfoWindow from './overlays/InfoWindow.vue'
+import TencentMarkerCluster from './overlays/MarkerCluster.vue'
 
 export default {
     install(Vue, options) {
@@ -21,9 +22,10 @@ export default {
         Vue.component('tencent-label', TencentLabel)
         Vue.component('tencent-marker', TencentMarker)
         Vue.component('tencent-info-window', TencentInfoWindow)
+        Vue.component('tencent-marker-cluster', TencentMarkerCluster)
     }
 }
 export {
-    TencentMap, TencentView, TencentScale, TencentMapType, TencentRotation, TencentZoom, TencentLabel, TencentMarker, TencentInfoWindow
+    TencentMap, TencentView, TencentScale, TencentMapType, TencentRotation, TencentZoom, TencentLabel, TencentMarker, TencentInfoWindow, TencentMarkerCluster
 }
 
