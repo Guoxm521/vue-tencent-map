@@ -14,7 +14,7 @@ import {
 } from "../base/factory.js"
 export default {
   name: "tencent-local-search",
-  mixins: [commonMixin("local-search")],
+  mixins: [commonMixin()],
   props: {
     location: {
       type: Object,
@@ -62,8 +62,10 @@ export default {
       this.suggest ? this.suggest.setFilter(val) : ""
     },
     keyword(val) {
-      this.getSuggestions()
-      this.searchByKeyword()
+      if (val) {
+        // this.getSuggestions()
+        this.searchByKeyword()
+      }
     },
   },
   data() {
@@ -76,7 +78,7 @@ export default {
     load() {
       let {
         map,
-        Tmap,
+        TMap,
         renderByParent,
         pageSize,
         region,
@@ -96,7 +98,6 @@ export default {
         map: map,
         geometries: [],
       })
-      this.originInstance = search
       this.suggest = suggest
       this.search = search
       this.markers = markers
@@ -105,10 +106,10 @@ export default {
       }
     },
     getSuggestions() {
-      let { suggest, keyword, suggestParams, Tmap, location } = this
+      let { suggest, keyword, suggestParams, TMap, location } = this
       if (keyword) {
         let params = Object.assign({ keyword: keyword }, suggestParams)
-        params.location = createPoint(Tmap, location)
+        params.location = createPoint(TMap, location)
         suggest
           .getSuggestions(params)
           .then((res) => {
@@ -120,13 +121,17 @@ export default {
       }
     },
     searchByKeyword() {
-      let { search, keyword, SearchNearbyParams, Tmap, location, radius } = this
+      let { search, keyword, SearchNearbyParams, TMap, location, radius } = this
       if (keyword) {
         let params = Object.assign(
-          { keyword: keyword, radius: radius, center: createPoint(location) },
+          {
+            keyword: keyword,
+            radius: radius,
+            center: createPoint(TMap, location),
+          },
           SearchNearbyParams
         )
-        search.searchRectangle(params).then((res) => {
+        search.searchNearby(params).then((res) => {
           this.$emit("searchByKeyword", res)
         })
       }

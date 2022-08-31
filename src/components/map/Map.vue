@@ -234,7 +234,7 @@ export default {
           }
           const $script = document.createElement("script")
           global.document.body.appendChild($script)
-          $script.src = `https://map.qq.com/api/gljs?v=1.exp&key=${ak}&callback=_initBaiduMap`
+          $script.src = `https://map.qq.com/api/gljs?v=1.exp&libraries=service&key=${ak}&callback=_initBaiduMap`
         })
         return global.TMap._preloader
       } else if (!global.TMap._preloader) {

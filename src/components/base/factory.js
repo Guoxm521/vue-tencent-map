@@ -1,6 +1,6 @@
 export function createPoint(TMap, options = {}) {
   const { lng, lat } = options
-  return new TMap.LatLng(lng, lat)
+  return new TMap.LatLng(lat, lng)
 }
 
 export function createMarkerStyle(TMap, options = {}) {

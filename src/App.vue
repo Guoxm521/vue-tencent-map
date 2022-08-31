@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <TencentMap
-      ak="12"
+      ak="UJIBZ-VFXC5-NBYIE-QMTSJ-4ZOV7-EBBOZ"
       @click="handleClick"
       style="width: 800px; height: 400px"
     >
@@ -24,11 +24,20 @@
         @closeclick="closeclick"
         :visible="true"
       ></TencentInfoWindow> -->
-      <TencentMarkerCluster
+      <!-- <TencentMarkerCluster
         :geometries="geometries"
         @click="cluster_click"
         @cluster_changed="cluster_changed"
-      ></TencentMarkerCluster>
+      ></TencentMarkerCluster> -->
+      <!-- <TencentScale></TencentScale>
+      <TencentRotation></TencentRotation>
+      <TencentZoom></TencentZoom> -->
+      <TencentLocalSearch
+        :location="location"
+        :keyword="keyword"
+        @getSuggestions="getSuggestions"
+        @searchByKeyword="searchByKeyword"
+      ></TencentLocalSearch>
     </TencentMap>
     <button @click="handleClick12">点击</button>
     <div>{{ position }}</div>
@@ -40,6 +49,10 @@ import {
   TencentMap,
   TencentInfoWindow,
   TencentMarkerCluster,
+  TencentScale,
+  TencentRotation,
+  TencentZoom,
+  TencentLocalSearch,
 } from "./components/index"
 import Scale from "./components/controls/Scale.vue"
 import Zoom from "./components/controls/Zoom.vue"
@@ -56,9 +69,17 @@ export default {
     BmLabel,
     TencentInfoWindow,
     TencentMarkerCluster,
+    TencentScale,
+    TencentRotation,
+    TencentZoom,
+    TencentLocalSearch,
   },
   data() {
     return {
+      location: {
+        lat: 39.916527,
+        lng: 116.397128,
+      },
       numVisible: true,
       position: "TOP_CENTER",
       boundary: {
@@ -195,6 +216,7 @@ export default {
         },
       ],
       content: "32131",
+      keyword: "",
     }
   },
   methods: {
@@ -206,7 +228,8 @@ export default {
     handleClick12() {
       // this.$refs["mark"].clear()
       // console.log(this.$refs["mark"].transmitEvent("ongetMap"))
-      this.content += "3"
+      // this.content += "3"
+      this.keyword = "深圳"
     },
     handleClickMarker(e) {
       console.log(312312, e)
@@ -225,6 +248,12 @@ export default {
     },
     cluster_click(e) {
       console.log(3, e)
+    },
+    getSuggestions(e) {
+      console.log("getSuggestions", e)
+    },
+    searchByKeyword(e) {
+      console.log("searchByKeyword", e)
     },
   },
 }
