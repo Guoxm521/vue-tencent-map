@@ -165,7 +165,7 @@ export default {
       let delay = this.delay
       debounce(() => {
         getSuggestions()
-        searchByKeyword()
+        // searchByKeyword()
       }, delay)
     },
     searchEnter() {
@@ -176,6 +176,7 @@ export default {
       this.$emit("select", item)
       this.keyword = item.title
       this.suggestions = []
+      this.searchEnter()
     },
   },
 }

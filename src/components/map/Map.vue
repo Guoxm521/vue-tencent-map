@@ -8,6 +8,7 @@
 <script>
 import bindEvents from "../base/bindEvent.js"
 import { checkType, checkBounds } from "../base/util.js"
+import { createPoint } from "../base/factory.js"
 
 export default {
   name: "tencent-map",
@@ -207,12 +208,12 @@ export default {
       this.$emit("ready", { TMap, map })
     },
     getCenterPoint() {
-      const { center, map } = this
+      const { center, map, TMap } = this
       switch (checkType(center)) {
         case "String":
           return center
         case "Object":
-          return map.setCenter(center.lng, center.lat)
+          return map.setCenter(createPoint(TMap, center))
         default:
           return map.getCenter()
       }
@@ -226,7 +227,7 @@ export default {
         const ak = this.ak || this._TMap().ak
         global.TMap = {}
         global.TMap._preloader = new Promise((resolve, reject) => {
-          global._initBaiduMap = function () {
+          global._initBaiduMap = function() {
             resolve(global.TMap)
             global.document.body.removeChild($script)
             global.TMap._preloader = null
