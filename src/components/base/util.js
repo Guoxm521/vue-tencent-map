@@ -33,3 +33,35 @@ export const checkFeatures = (type, features) => {
     }
     return true
 }
+
+let flag = true
+export const debounce = (fn, delay) => {
+    if (flag) {
+        setTimeout(() => {
+            fn()
+            flag = true
+        }, delay);
+    }
+    flag = false
+}
+
+export const throttle = (fn, delay) => {
+    let last = 0, timer = null
+    console.log("de")
+    return function () {
+        let context = this
+        let args = arguments
+        let now = +new Date()
+        console.log(now, last)
+        if (now - last < delay) {
+            clearTimeout(timer)
+            timer = setTimeout(function () {
+                last = now
+                fn.apply(context, args)
+            }, delay)
+        } else {
+            last = now
+            fn.apply(context, args)
+        }
+    }
+}

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="papa-tencent-map">
     <div v-if="!hasBmView" ref="view" style="width: 100%; height: 100%"></div>
     <slot></slot>
   </div>
@@ -271,3 +271,9 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.papa-tencent-map {
+  position: relative;
+}
+</style>
