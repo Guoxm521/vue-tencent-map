@@ -265,6 +265,17 @@
 					map.setBoundary(LatLngBounds);
 				}
 			},
+      easeTo(mapStatus,opts = {duration:500}) {
+      const { map, TMap, boundary } = this;
+      if(mapStatus.center) {
+        mapStatus.center = createPoint(TMap,mapStatus.center)
+      }
+      map.easeTo(mapStatus,opts)
+    },
+    getCenter() {
+        const { map, TMap, boundary } = this;
+        return map.getCenter()
+    }
 		},
 		mounted() {
 			this.reset();
@@ -274,6 +285,7 @@
 				hasBmView: false,
 			};
 		},
+
 	};
 </script>
 
