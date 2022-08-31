@@ -49,6 +49,10 @@ class Mixin {
                             originInstance.setMap(null);
                             originInstance = null;
                             break
+                        case 'local-search':
+                            originInstance.setMap(null);
+                            originInstance = null;
+                            break
                         case 'control':
                             return map['removeControl'](originInstance)
                         default:

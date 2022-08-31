@@ -1,3 +1,8 @@
+export function createPoint(TMap, options = {}) {
+  const { lng, lat } = options
+  return new TMap.LatLng(lng, lat)
+}
+
 export function createMarkerStyle(TMap, options = {}) {
   const { width, height, anchor, src, faceTo, rotate, color, strokeColor, strokeWidth, size, direction, offset } = options
   return new TMap.MarkerStyle({
