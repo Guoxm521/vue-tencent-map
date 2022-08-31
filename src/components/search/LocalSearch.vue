@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="search_box">
+    <div class="search_box" v-if="searchBox">
       <input
         id="keyword"
         type="text"
@@ -67,6 +67,10 @@ export default {
     delay: {
       type: Number,
       default: 500,
+    },
+    searchBox: {
+      type: Boolean,
+      default: true,
     },
   },
   watch: {
