@@ -28,7 +28,20 @@ module.exports = {
         options: {
           presets: ["@babel/preset-env"]
         },
-      }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'vue-style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: '[local]_[hash:base64:8]'
+            }
+          }
+        ]
+      },
     ]
   },
   plugins: [
