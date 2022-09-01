@@ -1,6 +1,6 @@
 {
-  "name": "papa-tencent-map",
-  "version": "0.2.2",
+  "name": "pp-vue-tencent-map",
+  "version": "1.0.0",
   "description": "Tencent Map Component for Vue 2.0",
   "author": "gxming",
   "scripts": {

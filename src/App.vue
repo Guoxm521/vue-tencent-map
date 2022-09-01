@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <TencentMap
-      ak="UJIBZ-VFXC5-NBYIE-QMTSJ-4ZOV7-EBBOZ"
+      ak="demo"
       @click="handleClick"
       style="width: 800px; height: 400px"
     >
