@@ -1,6 +1,6 @@
 {
-  "name": "pp-vue-tencent-map",
-  "version": "1.0.0",
+  "name": "ppos-vue-tencent-map",
+  "version": "1.3.0",
   "description": "Tencent Map Component for Vue 2.0",
   "author": "gxming",
   "scripts": {

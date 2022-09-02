@@ -1,0 +1,4 @@
+node_modules
+src/router/*
+src/App.vue
+src/main.js

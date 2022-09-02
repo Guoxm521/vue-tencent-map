@@ -5,14 +5,14 @@
 ### 安装
 
 ```js
- npm install pp-vue-tencent-map --save
+ npm install ppos-vue-tencent-map --save
 ```
 
 ### 全局注册
 
 ```js
 import Vue from 'vue'
-import TencentMap from 'pp-vue-tencent-map'
+import TencentMap from 'ppos-vue-tencent-map'
 
 Vue.use(TencentMap, {
   // ak 是在腾讯地图开发者平台申请的密钥
@@ -28,7 +28,7 @@ Vue.use(TencentMap, {
   </tencent-map>
 </template>
 <script>
-import TencentMap from 'pp-vue-tencent-map/components/map/Map.vue'
+import TencentMap from 'ppos-vue-tencent-map/components/map/Map.vue'
 export default {
   components: {
     TencentMap
